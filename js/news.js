@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const index = params.get('index');
+  const category = params.get('category') || 'general';  // categoryを取得、なければgeneral
 
-  const articles = JSON.parse(localStorage.getItem('articles'));
+  const articles = JSON.parse(localStorage.getItem(`articles_${category}`)); // カテゴリ付きキーで取得
   console.log('localStorage articles:', articles);
 
   if (articles && articles[index]) {
