@@ -1,4 +1,4 @@
-const apiKey = 'yourAPI';
+console.log("APIキーは:", apiKey);
 
 function fetchNews(category = 'general') {
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`;
