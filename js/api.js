@@ -10,15 +10,17 @@ function fetchNews(category = 'general') {
       const newsList = document.getElementById('newslist');
       newsList.innerHTML = '';
 
+      // ★ localStorageに保存（重要）
+      localStorage.setItem('articles', JSON.stringify(data.articles));
+
       if (!data.articles || data.articles.length === 0) {
         newsList.innerHTML = '記事が見つかりませんでした。';
         return;
       }
 
-      data.articles.forEach(article => {
+      data.articles.forEach((article, index) => { // index 必要
         const a = document.createElement('a');
-        a.href = article.url;
-        a.target = '_blank';
+        a.href = `news.html?index=${index}`; // ★ここでnews.htmlに飛ぶ
 
         const div = document.createElement('div');
         div.className = 'list_item';
@@ -46,6 +48,3 @@ function fetchNews(category = 'general') {
       document.getElementById('newslist').innerHTML = 'ニュースの読み込みに失敗しました。';
     });
 }
-
-// 初期表示（generalカテゴリー）
-fetchNews();
