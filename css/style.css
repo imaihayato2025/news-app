@@ -41,7 +41,11 @@ h2 {
   font-weight: 700;
   color: #000;
 }
-
+h3 {
+  font-size:clamp(1.5rem, 1rem + 2.5vw, 3rem);
+  font-weight: 700;
+  color: #000;
+}
 header h1 {
   font-size: clamp(1.5rem, 1rem + 2.5vw, 3rem);
   color: #000;
@@ -64,6 +68,7 @@ footer {
   width: 100%;
   height: 100px;
   background: #ffffff;
+  border-top:solid 0.5px #e4e3e3;
   box-shadow: 0px -3px 2px -1px rgba(161, 158, 158, 0.1);
 }
 footer ul {
@@ -223,48 +228,84 @@ transform: scale(1.1);
    font-size: clamp(0.75rem, 0.5rem + 1.25vw, 1.5rem);
   font-weight: 700;
   color: #fff;
-  background: #000;
-    transition-duration: .4s;
+   background: #ffffff;
+  box-shadow: 0px -3px 2px -1px rgba(161, 158, 158, 0.1);
+  transition-duration: .4s;
 }
 .share:hover {
   transform: scale(1.1);
 }
 .flex_btn{
   display: flex;
+  justify-content:center;
+  gap: 50px;
 }
 .sns_btn {
   width: 50px;
   height :50px;
-  background: red;
+}
+.sns_btn img{
+  width: 50px;
+  height :50px;
 }
 /*jsのためのcss*/
 .dark-btn-fab {
-  color: #000;
-  background:#fff;
+  color: #fff;
+  background:#D9D9D9;
 }
 .dark-bg {
-  background: #15202B;
+  background: #000;;
 }
+/* 白い文字色にする共通クラス */
 .dark-color {
-  color: #fff;
+  color: white;
 }
+/* news_title に文字色が適用されない対策（優先度を上げる） */
+.news_title.dark-color {
+  color: #fff !important;
+}
+
 .dark-btn {
   color: #000;
   background:#fff;
 }
-#category-list li.active {
-  color: #fff !important;
-  background: #000 !important;
-}
-.all_sns {
-  display: none;
-}
-
-.all_sns.active {
-  display: block;
+/* ダークテーマの基本スタイル */
+.dark-bg #category-list li {
+  background-color: #000;;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5em;
+  transition: color 0.3s;
 }
 
+/* ダークテーマ時のli共通 */
+.dark-bg #category-list li {
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  padding: 0.5em;
+  transition: background-color 0.3s, color 0.3s;
+}
 
+/* クリック（active）されたliは背景白・文字黒 */
+.dark-bg #category-list li.active {
+  background-color: white;
+  color: #000;;
+}
+.dark-footer {
+  background-color: #000;  /* フッターの背景を黒っぽく */
+}
+.dark-footer li {
+  color: white;            /* liの文字を白に */
+}
+.pre-dark body {
+  background-color: #121212;
+  color: white;
+}
+
+.pre-dark .news_title {
+  color: white !important;
+}
 @media screen and (max-width:768px) {
 
 #newslist .list_item {
@@ -273,5 +314,10 @@ transform: scale(1.1);
 #category-list li.active {
   color: #fff; /* ここを好きな色に変えてOK */
   background: #000;
+}
+.flex_btn{
+  display: flex;
+  justify-content:center;
+  gap: 25px;
 }
 }
