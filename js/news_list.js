@@ -34,7 +34,7 @@ function renderNews(data, category) {
 
     const img = document.createElement('img');
     img.className = 'list_image';
-    img.src = article.urlToImage || 'https://placehold.jp/300x200.png';
+    img.src = article.urlToImage || 'https://placehold.jp/D9D9D9/ffffff/200x150.png?text=No%20image%0A';
 
     const textDiv = document.createElement('div');
     textDiv.className = 'list_text';

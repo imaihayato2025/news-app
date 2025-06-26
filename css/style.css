@@ -33,22 +33,22 @@ ul {
 
 h1 {
   font-size: clamp(3rem, 2.667rem + 1.67vw, 4rem);
-  color: #000;
+  color: #333;
   font-weight: 700;
 }
 h2 {
   font-size:clamp(1rem, 0.667rem + 1.67vw, 2rem);
   font-weight: 700;
-  color: #000;
+  color: #333;
 }
 h3 {
   font-size:clamp(1.5rem, 1rem + 2.5vw, 3rem);
   font-weight: 700;
-  color: #000;
+  color: #333;
 }
 header h1 {
   font-size: clamp(1.5rem, 1rem + 2.5vw, 3rem);
-  color: #000;
+  color: #333;
 }
 
 header {
@@ -84,7 +84,7 @@ footer ul li {
   height: 100px;
   font-size:clamp(0.625rem, 0.333rem + 1.46vw, 1.5rem);
   font-weight: 700;
-  color: #000000;
+  color: #333;
   transition-duration: .4s;
 }
 footer ul li:hover {
@@ -118,7 +118,7 @@ transform: scale(1.1);
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
-  background: #000;
+  background: #333;
   margin-top: 50px;
   transition-duration: .4s;
   cursor: pointer;
@@ -193,6 +193,7 @@ transform: scale(1.1);
   width: 70%;
   height: 100%;
   padding-left: 2%;
+  flex: 1;
 }
 /*news内容*/
 .news_content {
@@ -211,9 +212,7 @@ transform: scale(1.1);
   line-height: 1.5;
 }
 .news_content img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover; /* 画像の切り抜き防止 */
+  width: 50%;
 }
 .share {
   display: flex;
@@ -254,7 +253,7 @@ transform: scale(1.1);
   background:#D9D9D9;
 }
 .dark-bg {
-  background: #000;;
+  background: #333;;
 }
 /* 白い文字色にする共通クラス */
 .dark-color {
@@ -266,12 +265,27 @@ transform: scale(1.1);
 }
 
 .dark-btn {
-  color: #000;
+  color: #333;
   background:#fff;
+}
+
+/* ライトテーマ時のカテゴリリスト */
+#category-list li {
+  background-color: #fff; /* 通常時の背景色 */
+  color: #333;
+  cursor: pointer;
+  padding: 0.5em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ライトテーマ時の .active（選択中） */
+#category-list li.active {
+  background-color: #333;
+  color: white;
 }
 /* ダークテーマの基本スタイル */
 .dark-bg #category-list li {
-  background-color: #000;;
+  background-color: #333;
   color: #fff;
   cursor: pointer;
   padding: 0.5em;
@@ -280,7 +294,7 @@ transform: scale(1.1);
 
 /* ダークテーマ時のli共通 */
 .dark-bg #category-list li {
-  background-color: #000;
+  background-color: #333;
   color: white;
   cursor: pointer;
   padding: 0.5em;
@@ -290,34 +304,46 @@ transform: scale(1.1);
 /* クリック（active）されたliは背景白・文字黒 */
 .dark-bg #category-list li.active {
   background-color: white;
-  color: #000;;
+  color: #333;;
 }
 .dark-footer {
-  background-color: #000;  /* フッターの背景を黒っぽく */
+  background-color: #333;  /* フッターの背景を黒っぽく */
 }
 .dark-footer li {
   color: white;            /* liの文字を白に */
 }
 .pre-dark body {
-  background-color: #121212;
+  background-color: #333;
   color: white;
 }
-
 .pre-dark .news_title {
   color: white !important;
 }
 @media screen and (max-width:768px) {
 
 #newslist .list_item {
-  height: 90px;
+  height: 100px;
+}
+.news_content img {
+  width: 90%;
 }
 #category-list li.active {
   color: #fff; /* ここを好きな色に変えてOK */
-  background: #000;
+  background: #333;
 }
 .flex_btn{
   display: flex;
   justify-content:center;
   gap: 25px;
 }
+}
+@media screen and (min-width:1280px) {
+  #newslist .list_item {
+  display: flex;
+  align-items: center;
+  height: 250px;
+  padding:  1% 2%;
+  border:solid 0.5px #e4e3e3;
+}
+
 }
