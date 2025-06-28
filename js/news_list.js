@@ -1,13 +1,19 @@
-// 例：apiKeyはconfig.jsなどでセットされている前提
-
+// ニュースAPIからデータ取得し、localStorage に保存
 function fetchNews(category = 'general') {
-  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`;
+  const storageKey = `articles_${category}`;
+  const cached = localStorage.getItem(storageKey);
 
+  if (cached) {
+    console.log(`✅ localStorageから取得: ${category}`);
+    const articles = JSON.parse(cached);
+    return Promise.resolve({ data: { articles }, category });
+  }
+  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`;
   return fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(`カテゴリ「${category}」のAPIレスポンス:`, data);
-      localStorage.setItem(`articles_${category}`, JSON.stringify(data.articles));
+      console.log(`🌐 API取得: ${category}`, data);
+      localStorage.setItem(storageKey, JSON.stringify(data.articles));
       return { data, category };
     })
     .catch(err => {
@@ -16,6 +22,7 @@ function fetchNews(category = 'general') {
     });
 }
 
+// 一覧に記事を表示（詳細ページへは q=タイトル でリンク）
 function renderNews(data, category) {
   const newsList = document.getElementById('newslist');
   newsList.innerHTML = '';
@@ -25,16 +32,16 @@ function renderNews(data, category) {
     return;
   }
 
-  data.articles.forEach((article, index) => {
+  data.articles.forEach(article => {
     const a = document.createElement('a');
-    a.href = `news.html?category=${category}&index=${index}`;
+    a.href = `news.html?q=${encodeURIComponent(article.title)}`;
 
     const div = document.createElement('div');
     div.className = 'list_item';
 
     const img = document.createElement('img');
     img.className = 'list_image';
-    img.src = article.urlToImage || 'https://placehold.jp/D9D9D9/ffffff/200x150.png?text=No%20image%0A';
+    img.src = article.urlToImage || 'https://placehold.jp/d9d9d9/ffffff/300x200.png?text=No%20Image';
 
     const textDiv = document.createElement('div');
     textDiv.className = 'list_text';
@@ -51,12 +58,12 @@ function renderNews(data, category) {
   });
 }
 
-// 初期表示
+// 初期表示（デフォルトカテゴリ: general）
 fetchNews('general').then(({ data, category }) => {
   renderNews(data, category);
 });
 
-// カテゴリクリックイベント登録
+// カテゴリクリック処理
 const categoryItems = document.querySelectorAll('#category-list li');
 categoryItems.forEach(li => {
   li.addEventListener('click', () => {
@@ -65,7 +72,6 @@ categoryItems.forEach(li => {
       renderNews(data, category);
     });
 
-    // activeクラスの切り替え
     categoryItems.forEach(i => i.classList.remove('active'));
     li.classList.add('active');
   });

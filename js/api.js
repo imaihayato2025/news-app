@@ -41,7 +41,7 @@ function fetchNews(category = 'general') {
         // 記事の画像を作成（画像がないときは代替画像を表示）
         const img = document.createElement('img');
         img.className = 'list_image';
-        img.src = article.urlToImage || 'https://placehold.jp/300x200.png';
+        img.src = article.urlToImage ||  'https://placehold.jp/d9d9d9/ffffff/300x200.png?text=No%20Image';;
 
         // タイトルなどを表示するテキスト用のdivを作成
         const textDiv = document.createElement('div');
