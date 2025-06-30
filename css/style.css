@@ -33,22 +33,22 @@ ul {
 
 h1 {
   font-size: clamp(3rem, 2.667rem + 1.67vw, 4rem);
-  color: #333;
+  color: #23282f;
   font-weight: 700;
 }
 h2 {
   font-size:clamp(1rem, 0.667rem + 1.67vw, 2rem);
   font-weight: 700;
-  color: #333;
+  color: #23282f;
 }
 h3 {
   font-size:clamp(1.5rem, 1rem + 2.5vw, 3rem);
   font-weight: 700;
-  color: #333;
+  color: #23282f;
 }
 header h1 {
   font-size: clamp(1.5rem, 1rem + 2.5vw, 3rem);
-  color: #333;
+  color: #23282f;
 }
 
 header {
@@ -84,7 +84,7 @@ footer ul li {
   height: 100px;
   font-size:clamp(0.625rem, 0.333rem + 1.46vw, 1.5rem);
   font-weight: 700;
-  color: #333;
+  color: #23282f;
   transition-duration: .4s;
 }
 footer ul li:hover {
@@ -118,7 +118,7 @@ transform: scale(1.1);
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
-  background: #333;
+  background: #23282f;
   margin-top: 50px;
   transition-duration: .4s;
   cursor: pointer;
@@ -254,7 +254,7 @@ transform: scale(1.1);
   background:#D9D9D9;
 }
 .dark-bg {
-  background: #333;;
+  background: #23282f;
 }
 /* 白い文字色にする共通クラス */
 .dark-color {
@@ -266,14 +266,14 @@ transform: scale(1.1);
 }
 
 .dark-btn {
-  color: #333;
+  color: #23282f;
   background:#fff;
 }
 
 /* ライトテーマ時のカテゴリリスト */
 #category-list li {
   background-color: #fff; /* 通常時の背景色 */
-  color: #333;
+  color: #23282f;
   cursor: pointer;
   padding: 0.5em;
   transition: background-color 0.3s, color 0.3s;
@@ -281,12 +281,12 @@ transform: scale(1.1);
 
 /* ライトテーマ時の .active（選択中） */
 #category-list li.active {
-  background-color: #333;
+  background-color: #23282f;
   color: white;
 }
 /* ダークテーマの基本スタイル */
 .dark-bg #category-list li {
-  background-color: #333;
+  background-color: #23282f;
   color: #fff;
   cursor: pointer;
   padding: 0.5em;
@@ -295,7 +295,7 @@ transform: scale(1.1);
 
 /* ダークテーマ時のli共通 */
 .dark-bg #category-list li {
-  background-color: #333;
+  background-color: #23282f;
   color: white;
   cursor: pointer;
   padding: 0.5em;
@@ -305,16 +305,16 @@ transform: scale(1.1);
 /* クリック（active）されたliは背景白・文字黒 */
 .dark-bg #category-list li.active {
   background-color: white;
-  color: #333;;
+  color: #23282f;;
 }
 .dark-footer {
-  background-color: #333;  /* フッターの背景を黒っぽく */
+  background-color: #23282f;  /* フッターの背景を黒っぽく */
 }
 .dark-footer li {
   color: white;            /* liの文字を白に */
 }
 .pre-dark body {
-  background-color: #333;
+  background-color: #23282f;
   color: white;
 }
 .pre-dark .news_title {
@@ -330,7 +330,7 @@ transform: scale(1.1);
 }
 #category-list li.active {
   color: #fff; /* ここを好きな色に変えてOK */
-  background: #333;
+  background: #23282f;
 }
 .flex_btn{
   display: flex;
